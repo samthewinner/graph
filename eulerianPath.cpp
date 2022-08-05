@@ -1,3 +1,4 @@
+// first approach
 void dfs(vector<int>adj[],set<pair<int,int>>&s,vector<int>&vis,int node,int &last){
     last = node;
     vis[node]  = 1;
@@ -31,4 +32,16 @@ void dfs(vector<int>adj[],set<pair<int,int>>&s,vector<int>&vis,int node,int &las
         // cout<<s.size()<<endl;
         if(last == 0) return 2;
         return 1;	    
+	}
+
+
+// second approach
+int isEularCircuit(int V, vector<int>adj[]){
+	    int count=0;int tot=0;
+	    for(int i=0;i<V;i++){
+	        if(adj[i].size()%2)count++;
+	        if(count>2)return 0;
+	    }
+	    if(count == 0) return 2;
+	    return 1;
 	}
